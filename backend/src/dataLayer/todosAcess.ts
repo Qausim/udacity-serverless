@@ -22,6 +22,7 @@ export class TodosAccess {
         const data = {
             ...dto,
             userId,
+            name: dto.name.trim(),
             createdAt: new Date().toISOString(),
             done: false,
         }

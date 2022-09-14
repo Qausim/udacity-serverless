@@ -4,9 +4,9 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import * as middy from 'middy'
 import { cors, httpErrorHandler } from 'middy/middlewares'
 
-import { createAttachmentPresignedUrl } from '../../helpers/todos'
+import { createAttachmentPresignedUrl } from '../../businessLogic/todos'
 import { getUserId } from '../utils'
-import { getTodo } from '../../helpers/todos'
+import { getTodo } from '../../businessLogic/todos'
 
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -16,7 +16,7 @@ export const handler = middy(
     const todo = await getTodo(todoId, userId);
     let url: string;
     if (todo) {
-      url = await createAttachmentPresignedUrl(todoId);
+      url = createAttachmentPresignedUrl(todoId);
     }
     
 
