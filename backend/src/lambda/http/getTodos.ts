@@ -5,7 +5,7 @@ import * as middy from 'middy'
 import { cors } from 'middy/middlewares'
 
 import { getUserId } from '../utils';
-import { getTodosForUser } from '../../helpers/todos'
+import { getTodosForUser } from '../../businessLogic/todos'
 import { Key } from 'aws-sdk/clients/dynamodb'
 import { createLogger } from '../../utils/logger';
 
